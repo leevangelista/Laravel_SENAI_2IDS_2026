@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlunoController;
+use App\Http\Controllers\TurmaController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,3 +29,12 @@ Route::put('/aluno/{id}/update',[AlunoController::class, 'update'])
 
 Route::delete('/aluno/{id}',[AlunoController::class, 'deletar'])
 ->name('aluno.deletar');
+
+// ROTAS DA TURMA
+
+Route::get('/turma/cadastrar', function(){ 
+    return view('cadastroTurma');
+})->name('turma.cadastro');
+
+Route::post('/turma/salvar',[TurmaController::class, 'add'])
+->name('turma.salvar');
