@@ -27,7 +27,7 @@
         <br><br>
         <label for="turma_id">ID DA TURMA: </label>
         <input type="number" name="turma_id" id="turma_id" placeholder="ID TURMA..."
-            required value="{{ old('turma_id')}}"
+            value="{{ old('turma_id')}}"
         >
 
         <input type="submit" value="Cadastrar">
