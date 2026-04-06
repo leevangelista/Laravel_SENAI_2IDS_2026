@@ -2,6 +2,7 @@
 // estou no AlunoController.php
 namespace App\Http\Controllers;
 use App\Models\Aluno;
+use App\Models\Turma;
 
 use Illuminate\Http\Request;
 
@@ -15,6 +16,11 @@ class AlunoController extends Controller
         // SELECT * FROM alunos join turmas on turma_id = turmas.id;
         // @dd($alunos->toArray());
         return view('listar', compact('alunos'));
+    }
+
+    public function cadastro(){
+        $turmas = Turma::get();
+        return view('cadastro', compact('turmas'));
     }
 
     public function add(Request $request){

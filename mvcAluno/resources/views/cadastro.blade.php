@@ -26,9 +26,21 @@
 
         <br><br>
         <label for="turma_id">ID DA TURMA: </label>
-        <input type="number" name="turma_id" id="turma_id" placeholder="ID TURMA..."
+        {{-- <input type="number" name="turma_id" id="turma_id" placeholder="ID TURMA..."
             value="{{ old('turma_id')}}"
-        >
+        > --}}
+        <select name="turma_id" id="turma_id">
+            @foreach ($turmas as $turma)
+                <option value="{{$turma->id}}">{{$turma->serie}}</option>
+            @endforeach
+        </select>
+
+        {{-- <select name="turma_id" id="turma_id">
+            <option value="1">1EM</option>
+            <option value="2">3EM</option>
+            <option value="3">2EM</option>
+            <option value="4">9EF</option>
+        </select> --}}
 
         <input type="submit" value="Cadastrar">
     </form>
