@@ -1,19 +1,19 @@
 <?php
-// estou no ProdutiController.php
+// estou no SetorApiController.php
 namespace App\Http\Controllers;
 use App\Models\Produto;
 use App\Models\Setores;
 
 use Illuminate\Http\Request;
 
-class SetorController extends Controller
+class SetorApiController extends Controller
 {
-    public function listar(){
+    public function listarApi(){
         $setores = Setores::all();
-        return view('listarSetores', compact('setores'));
+        return response()->json($setores);
     }
 
-    public function add(Request $request){
+    public function addApi(Request $request){
 
         $request->validate([
             'nome' => 'required|string|max:255',
@@ -21,13 +21,14 @@ class SetorController extends Controller
             // para poder ser nulo ou existir na tabela setores
         ]);
 
-        Setores::create([
+        $setor = Setores::create([
             'nome' => $request->nome,
             'num_setor' => $request->num_setor
         ]);
 
-        return redirect()->back()->with('success','Setor Cadastrado com sucesso!');
-
+        return response()->json([
+            'message' => 'Setor Criado',
+            'setor' => $setor
+        ], 200);
     }
-
 }
