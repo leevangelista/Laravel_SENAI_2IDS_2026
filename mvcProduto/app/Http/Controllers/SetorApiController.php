@@ -13,6 +13,7 @@ class SetorApiController extends Controller
         return response()->json($setores);
     }
 
+    // estou no SetorApiController.php
     public function addApi(Request $request){
 
         $request->validate([
