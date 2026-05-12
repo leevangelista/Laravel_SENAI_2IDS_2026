@@ -32,7 +32,7 @@ class SetorApiController extends Controller
             'setor' => $setor
         ], 200);
     }
-    // COLEI  no SetorApiController.php
+    
     public function updateApi(Request $request, $id){
         $request->validate([
             'nome' => 'required|string|max:255',
@@ -51,5 +51,13 @@ class SetorApiController extends Controller
             'setor' => $setor
         ], 200);
     }
+    // COLEI  no SetorApiController.php
+    public function deletarApi($id){
+        $setor = Setores::findOrFail($id); // buscar o setor para depois deletar
+        $setor->delete(); // faz o delete no banco de dados
 
+        return response()->json([
+            'message' => "Setor Deletado com Sucesso!",
+        ], 200);
+    }
 }

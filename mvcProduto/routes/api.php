@@ -12,3 +12,4 @@ Route::get('/user', function (Request $request) {
 Route::get('setores',[SetorApiController::class, 'listarApi']);
 Route::post('setor/add',[SetorApiController::class, 'addApi']);
 Route::put('setor/atualizar/{id}',[SetorApiController::class, 'updateApi']);
+Route::delete('setor/deletar/{id}',[SetorApiController::class, 'deletarApi']);
