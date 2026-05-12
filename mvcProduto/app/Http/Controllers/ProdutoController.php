@@ -84,9 +84,8 @@ class ProdutoController extends Controller
 
     public function deletar($id){
         $produto = Produto::findOrFail($id); // buscar o produto para depois deletar
-        $detalhe = DetalheProdutos::where('produto_id', $produto->id)->first();
+        $produto->detalhesProdutos?->delete(); // faz o delete da tabela segundaria primeiro
         $produto->delete(); // faz o delete no banco de dados
-        $detalhe->deletar();
 
         return redirect()->route('produto.listar')
             ->with('success','Aluno excluído com sucesso!');
