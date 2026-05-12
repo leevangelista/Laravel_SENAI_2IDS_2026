@@ -13,7 +13,7 @@ class SetorApiController extends Controller
         return response()->json($setores);
     }
 
-    // estou no SetorApiController.php
+    
     public function addApi(Request $request){
 
         $request->validate([
@@ -32,4 +32,24 @@ class SetorApiController extends Controller
             'setor' => $setor
         ], 200);
     }
+    // COLEI  no SetorApiController.php
+    public function updateApi(Request $request, $id){
+        $request->validate([
+            'nome' => 'required|string|max:255',
+            'num_setor' => 'required|numeric|max:255',
+        ]);
+
+        $setor = Setores::findOrFail($id); // buscar setor para ser atualizado
+
+        $setor->nome = $request->nome; // atualizando o campo nome
+        $setor->num_setor = $request->num_setor; // atualizando o campo quantidade
+
+        $setor->save(); // salvando no banco de dados(fazendo update)
+
+        return response()->json([
+            'message' => "Setor atualizado!",
+            'setor' => $setor
+        ], 200);
+    }
+
 }
