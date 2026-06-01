@@ -11,6 +11,14 @@
     <br>
     <a href="{{route('setor.cadastro')}}">Cadastrar Setor</a>
     <br>
+    <!-- AULA E HOJE INICIO-->
+    <form method="GET" action="{{ route('setor.listar') }}">
+        <input type="text" name="nome" placeholder="Digite o nome do setor"
+            value="{{request('nome')}}"
+        >
+        <button type="submit">Buscar</button>
+    </form>
+    <!-- AULA DE HOJE FIM-->
     <table border="1">
         <thead>
             <tr>

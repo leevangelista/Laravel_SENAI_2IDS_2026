@@ -20,17 +20,17 @@
         @csrf
         <label for="nome">Nome: </label>
         <input type="text" name="nome" id="nome" placeholder="Nome..."
-            require value="{{ old('nome') }}"
+            value="{{ old('nome') }}"
         >
         <br><br>
         <label for="quantidade">Quantidade: </label>
         <input type="number" name="quantidade" id="quantidade" placeholder="Quantidade..."
-            required value="{{ old('quantidade')}}"
+            value="{{ old('quantidade')}}"
         >
         <br><br>
         <label for="valor">Valor: </label>
         <input type="number" name="valor" id="valor" placeholder="Valor..."
-            required value="{{ old('valor')}}"
+            value="{{ old('valor')}}"
         >
 
         <br><br>
@@ -44,19 +44,19 @@
         <br><br>
         <label for="descricao">Descricao: </label>
         <input type="text" name="descricao" id="descricao" placeholder="Descricao..."
-            required value="{{ old('descricao')}}"
+            value="{{ old('descricao')}}"
         >
 
         <br><br>
         <label for="tamanho">Tamanho: </label>
         <input type="number" name="tamanho" id="tamanho" placeholder="Tamanho..."
-            required value="{{ old('tamanho')}}"
+            value="{{ old('tamanho')}}"
         >
 
         <br><br>
         <label for="peso">Peso: </label>
         <input type="number" name="peso" id="peso" placeholder="Peso..."
-            required value="{{ old('peso')}}"
+            value="{{ old('peso')}}"
         >
 
         <input type="submit" value="Cadastrar">
