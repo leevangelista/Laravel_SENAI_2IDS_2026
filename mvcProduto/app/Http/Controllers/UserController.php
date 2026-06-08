@@ -30,7 +30,7 @@ class UserController extends Controller
         return redirect()->back()->with('success','Usuario cadastrado com sucesso!');
     }
 
-    // ESTOU NA USER CONTROLLER
+    
 
     public function autenticar(Request $request){
         $credenciais = $request->validate([
@@ -46,4 +46,35 @@ class UserController extends Controller
 
         return back()->withErrors(['email' => 'E-mail ou senha inválidos.']);
     }
+
+    
+    public function trocarSenha(Request $request){
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:6'
+        ]);
+
+        // busca o usuario que será trocado a senha
+        $usuario = User::where('email', $request->email)->first();
+
+        if(!$usuario){
+            return back()->withErrors([
+                'email' => 'Usuário não encontrado.'
+            ]);
+        }
+
+        $usuario->password = Hash::make($request->password);
+        $usuario->save();
+
+        return back()->with('success','Senha alterada com sucesso!');
+
+    }
+    // ESTOU NA USER CONTROLLER
+    public function logout(Request $request){
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('login');
+    }
+
 }

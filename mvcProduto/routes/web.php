@@ -24,6 +24,18 @@ Route::get('/usuario/cadastrar', function(){
 Route::post('/usuario/salvar',[UserController::class, 'add'])
 ->name('usuario.salvar');
 
+// ROTA DE TROCAR A SENHA
+Route::get('/senha', function(){
+    return view('trocarSenha');
+})->name('senha.tela');
+
+Route::post('/senha/trocar',[UserController::class, 'trocarSenha'])
+->name('senha.trocar');
+
+// ROTA PARA SAIR
+Route::post('/logout',[UserController::class, 'logout'])
+->name('logout');
+
 // GET - listar os produtos cadastrados
 Route::get('/produto/listar',[ProdutoController::class, 'listar'])->name('produto.listar');
 

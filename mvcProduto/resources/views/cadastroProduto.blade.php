@@ -9,6 +9,13 @@
     <h1>Cadastro Produto</h1>
 
     <br>
+        <form action="{{route('logout')}}" method="POST">
+            @csrf
+            <button type="submit">SAIR</button>
+        </form>
+    <br>
+
+    <br>
     <a href="{{route('produto.listar')}}">Listar Produto</a>
     <br>
 
