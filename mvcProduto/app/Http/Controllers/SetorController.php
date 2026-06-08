@@ -32,6 +32,8 @@ class SetorController extends Controller
 
     public function add(Request $request){
 
+        
+
         $request->validate([
             'nome' => 'required|string|max:255',
             'num_setor' => 'required|numeric|max:500',

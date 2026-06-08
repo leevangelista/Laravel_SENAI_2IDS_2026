@@ -29,4 +29,12 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // ESTOU NA MODEL User.php
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'tipo'
+    ];
 }

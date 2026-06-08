@@ -46,3 +46,7 @@ FOREIGN KEY (produto_id)
 REFERENCES Produtos(id)
 ON DELETE SET NULL;
 
+-- COMANDO APENAS PARA QUANDO FOR USAR O LOGIN
+ALTER TABLE users
+ADD COLUMN tipo varchar(255) not null default 'usuario';
+
